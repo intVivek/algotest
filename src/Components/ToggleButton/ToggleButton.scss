@@ -1,0 +1,27 @@
+.toggleButton{
+    height: 24px;
+    border-radius: 16px;
+    display: flex;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 13px;
+
+    > div{
+        display: flex;
+        align-items: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
+        cursor: pointer;
+        padding : 0px 15px;
+        transition: all .2s ease;
+        color: var(--accent-color);
+        background-color: white;
+    }
+    
+    > .active{
+        color: white;
+        background-color: var(--accent-color);
+    }
+}

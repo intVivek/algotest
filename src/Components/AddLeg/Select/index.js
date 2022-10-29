@@ -1,16 +1,16 @@
 import "./Select.scss";
 import React from "react";
-import ToggleButton from "../../../ToggleButton";
+import ToggleButton from "../../ToggleButton";
 
-const index = () => {
-    const onChangeHandler = () => {
-
+const index = (props) => {
+    const onChangeHandler = (val) => {
+        props.setSegment(val);
     }
 
     return (
-        <div className="segmentSelect">
+        <div className="selectSegment">
             <span>Select segments</span>
-            <ToggleButton values = {['Futures', 'Options']} onChange={onChangeHandler}/>
+            <ToggleButton default={props.segment} values = {['Futures', 'Options']} onChange={onChangeHandler}/>
         </div>
     );
 };
