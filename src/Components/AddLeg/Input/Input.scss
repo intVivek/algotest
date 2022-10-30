@@ -12,5 +12,12 @@
     >.options{
         display: flex;
         gap: 1.25rem;
+
+        >.strikeType{
+            display: flex;
+            align-items: center;
+        }
     }
+
+
 }

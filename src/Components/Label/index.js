@@ -1,4 +1,4 @@
-import "./legoLabel.scss";
+import "./Label.scss";
 import React from "react";
 
 const index = (props) => {
