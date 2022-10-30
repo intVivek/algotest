@@ -1,5 +1,6 @@
 import "./AddLeg.scss";
-import {useState} from "react";
+import {useState, useCallback} from "react";
+import {cloneDeep} from "lodash";
 import React from "react";
 import Select from "./Select";
 import Input from "./Input/Input";
@@ -9,14 +10,15 @@ import {useLeg} from "../../Context/LegProvider";
 
 const AddLeg = () => {
     const [segment, setSegment] = useState(2);
-    const [leg, setLeg] = useState(defaultLeg);
+    const [leg, setLeg] = useState(cloneDeep(defaultLeg));
     const {setLegs} = useLeg();
 
-    const addLog = ()=>{
+    const addLog = useCallback(()=>{
+        console.log(defaultLeg, leg);
         setLegs((prev)=>{
-            return [{...leg}, ...prev];
+            return [...prev, {...leg}];
         });
-    }
+    },[leg, setLegs]);
 
     return (
         <div className="addLeg">

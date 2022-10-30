@@ -56,6 +56,7 @@ const StrikeType = ({index, criteria, strikeParameter}) => {
             {
                 criteria === "Strike Type"? 
                     <DropDown
+                        color={"blue"}
                         value={strikeParameter}
                         default ={1}
                         options={strikeTypes}

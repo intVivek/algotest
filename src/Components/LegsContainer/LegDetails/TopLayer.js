@@ -22,6 +22,7 @@ const TopLayer = ({index, leg}) => {
             }}
         />
         <DropDown 
+            color={"blue"}
             options={positions}
             value={leg.PositionType}
             onChange={(value)=>{
@@ -32,6 +33,7 @@ const TopLayer = ({index, leg}) => {
             }}
         />
         <DropDown 
+            color={"blue"}
             options={optionTypes}
             value={leg.OptionType}
             onChange={(value)=>{
@@ -42,6 +44,7 @@ const TopLayer = ({index, leg}) => {
             }}
         />
         <DropDown 
+            color={"blue"}
             options={expiries}
             value={leg.Expiry}
             onChange={(value)=>{
@@ -53,6 +56,7 @@ const TopLayer = ({index, leg}) => {
         />
         <Label label={"Select Strike"}/>
         <DropDown 
+            color={"blue"}
             options={criterias}
             value={leg.Criteria}
             onChange={(value)=>{

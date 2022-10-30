@@ -3,6 +3,12 @@ const optionTypes = ['Call', 'Put'];
 const expiries = ['Weekly', 'Monthly'];
 const criterias = ['Strike Type', 'Premium Range', 'Closest Premium', 'Straddle Width'];
 const strikeTypes = ['ATM', 'OTM', 'ITM'];
+const momentum = ["Points ↑", "Points ↓", "Percentage ↑", "Percentage ↓", "Underlying Points↑", "Underlying Points↓", "Underlying Percentage", "Underlying Percentage"];
+const targetProfit = ["Points", "Underlying Points", "Percentage", "Underlying Percentage"];
+const stopLoss = [...targetProfit];
+const trailSL = ["Points", "Percentage"]; 
+const tgt = ["RE ASAP", "RE ASAP ↩", "RE MOMENTUM", "RE MOMENTUM ↩", "RE COST", "RE COST ↩"];
+const sl = [...tgt];
 
 const defaultLeg = {
     PositionType: "Sell",
@@ -23,15 +29,15 @@ const defaultLeg = {
         }
     },
     LegMomentum: {
-        Type: "None",
+        Type: "Points ↑",
         Value: 0
     },
     LegReentrySL: {
-        Type: "ASRP",
+        Type: "RE ASRP",
         Value: 0
     },
     LegReentryTP: {
-        Type: "ASRP",
+        Type: "RE ASRP",
         Value: 0
     },
     OptionType: "Call",
@@ -40,4 +46,4 @@ const defaultLeg = {
     StrikeParameter: "ATM",
 }
 
-export {positions, optionTypes, expiries, criterias, strikeTypes, defaultLeg};
+export {positions, optionTypes, expiries, criterias, strikeTypes, defaultLeg, momentum, targetProfit, stopLoss, trailSL, tgt, sl};
