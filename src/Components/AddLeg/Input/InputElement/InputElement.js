@@ -1,33 +1,21 @@
 import "./InputElement.scss";
-import React,{ useState } from "react";
+import React from "react";
+import NumberInput from '../../../NumberInput';
+import DropDown from '../../../DropDown';
 
 const InputElement = (props) => {
-    const [value, setValue] = useState(props.default);
+    
     return (
         <div className='inputElement'>
-            <label>{props.label}</label>
+            
             {
                 props.number?
-                    <input 
-                        type="number"
-                        value={value}
+                    <NumberInput 
                         min= {props.min || 0}
                         max= {props.max || 10000000}
-                        onChange={(e) => {
-                            props.onChange(e.target.value)
-                            setValue(e.target.value)
-                        }}
+                        onChange={props.onChange}
                     />:
-                    <select>
-                        {
-                            props?.options?.map((option, index) => {
-                                return <option 
-                                    key={index}
-                                    onChange={(e) => props.onChange(e.target.value)}
-                                >{option}</option>
-                            })
-                        }
-                    </select>
+                    <DropDown options={props.options} onChange={props.onChange} />
             }
         </div>
     );
