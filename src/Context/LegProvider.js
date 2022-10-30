@@ -1,15 +1,19 @@
-import React, { useContext,  useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 const LegContext = React.createContext()
 
-export function useSocket() {
+export function useLeg() {
   return useContext(LegContext)
 }
 
-export function LegProvider({ id, children }) {
-  const [legs, setLegs] = useState()
+export function LegProvider({children }) {
+
+  const [legs, setLegs] = useState([]);
+  useEffect(()=>{
+    console.log(legs);
+  },[legs])
 
   return (
-    <LegContext.Provider legs={legs} setLegs={setLegs}>
+    <LegContext.Provider value={{legs, setLegs}}>
       {children}
     </LegContext.Provider>
   )

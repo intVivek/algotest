@@ -1,0 +1,10 @@
+.legDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    >.topLayer{
+        display: flex;
+        gap: 1.25rem;
+    }
+}

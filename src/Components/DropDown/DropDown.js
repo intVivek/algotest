@@ -5,6 +5,7 @@ const DropDown = (props) => {
     return (
         <select 
             className={props.color==='blue'?"dropDownBlue":"dropDownWhite"}
+            value={props.value}
             onChange={(e) => props.onChange(e.target.value)}
         >
             {

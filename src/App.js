@@ -4,7 +4,7 @@ import AlgoTest from './Pages/AlgoTest';
 function App() {
   return (
     <div className="App">
-      <AlgoTest />
+        <AlgoTest />
     </div>
   );
 }

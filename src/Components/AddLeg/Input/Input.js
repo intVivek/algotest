@@ -4,8 +4,8 @@ import InputElement from "./InputElement";
 import {positions, optionTypes, expiries, criterias } from "../../../Utils/Data";
 import StrikeType from './StrikeType';
 
-const Input = (props) => {
-    const [lot, setLot] = useState(1);
+const Input = ({setLeg, segment}) => {
+    const [lot, setLot] = useState("1");
     const [position, setPosition] = useState(positions[0]);
     const [optionType, setOptionType] = useState(optionTypes[0]);
     const [expiry, setExpiry] = useState(expiries[0]);
@@ -24,56 +24,56 @@ const Input = (props) => {
     },[criteria]);
 
     useEffect(()=>{
-        props.setLeg(prev=>{
+        setLeg(prev=>{
             prev.Lots=lot;
             return {...prev};
         });
     },[lot])
 
     useEffect(()=>{
-        props.setLeg(prev=>{
+        setLeg(prev=>{
             prev.PositionType=position;
             return {...prev};
         });
     },[position])
 
     useEffect(()=>{
-        props.setLeg(prev=>{
-            prev.ExpiryKind=optionType;
+        setLeg(prev=>{
+            prev.OptionType=optionType;
             return {...prev};
         });
     },[optionType])
 
     useEffect(()=>{
-        props.setLeg(prev=>{
+        setLeg(prev=>{
             prev.ExpiryKind=expiry;
             return {...prev};
         });
     },[expiry])
 
     useEffect(()=>{
-        props.setLeg(prev=>{
+        setLeg(prev=>{
             prev.EntryType=criteria;
             return {...prev};
         });
     },[criteria])
 
     useEffect(()=>{
-        props.setLeg((prev)=>{
+        setLeg((prev)=>{
             return {...prev,...strikeParameter};
         });
     },[strikeParameter])
 
     return (
         <div className="inputLeg">
-            <InputElement label={"Total lot"} default ={1} number={true} onChange={setLot}/>
-            <InputElement label={"Position"} default ={1} options={positions} onChange={setPosition}/>
-            {props.segment === 2 ?
+            <InputElement label={"Total lot"} value={lot} default ={1} number={true} onChange={setLot}/>
+            <InputElement label={"Position"} value={position} default ={1} options={positions} onChange={setPosition}/>
+            {segment === 2 ?
                 <div className="options">
-                    <InputElement label={"Option Type"} default ={1} options={optionTypes} onChange={setOptionType}/>
-                    <InputElement label={"Expiry"} default ={1} options={expiries} onChange={setExpiry}/>
-                    <InputElement label={"Select Strike Criteria"} default ={1} options={criterias} onChange={setCriteria}/>
-                    <StrikeType criteria={criteria} setStrikeParameter={setStrikeParameter}/>
+                    <InputElement label={"Option Type"} default ={1} value={optionType} options={optionTypes} onChange={setOptionType}/>
+                    <InputElement label={"Expiry"} default ={1} value={expiry} options={expiries} onChange={setExpiry}/>
+                    <InputElement label={"Select Strike Criteria"} value = {criteria} default ={1} options={criterias} onChange={setCriteria}/>
+                    <StrikeType criteria={criteria} strikeParameter={strikeParameter.StrikeParameter} setStrikeParameter={setStrikeParameter}/>
                 </div>
             :""}
         </div>

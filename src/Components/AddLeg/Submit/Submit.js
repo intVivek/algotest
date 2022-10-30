@@ -2,10 +2,10 @@ import "./Submit.scss";
 import React from "react";
 import Button from '../../Button';
 
-const Submit = () => {
+const Submit = (props) => {
     return (
         <div className="submitLeg">
-            <Button color={'blue'} label={"Add Leg"}/>
+            <Button color={'blue'} label={"Add Leg"} onClick={props.addLog}/>
             <Button label={"Cancel"}/>
         </div>
     )

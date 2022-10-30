@@ -5,7 +5,7 @@ import DropDown from '../../DropDown';
 import Label from '../../Label';
 import NumberInput from '../../NumberInput';
 
-const StrikeType = ({criteria, setStrikeParameter}) => {
+const StrikeType = ({criteria, strikeParameter, setStrikeParameter}) => {
     const [lower, setLower] = useState(50);
     const [upper, setUpper] = useState(200);
     const [operator, setOperator] = useState("+");
@@ -35,7 +35,7 @@ const StrikeType = ({criteria, setStrikeParameter}) => {
     }
     const width = (val)=>{
         setWidthValue(val);
-        setStrikeParameter({StrikeParameter: {"Adjustment":operator, Width: val}});
+        setStrikeParameter({StrikeParameter: {"Adjustment": operator, Width: val}});
     }
     
     return (
@@ -47,26 +47,27 @@ const StrikeType = ({criteria, setStrikeParameter}) => {
                         default ={1}
                         options={strikeTypes}
                         onChange={type}
+                        value ={strikeParameter}
                     />:""}
             {
                 criteria === "Premium Range"?<>
-                    <InputElement label={"Lower Range"} default ={50 } number={true} onChange={minRange}/>
-                    <InputElement label={"Upper Range"} default ={200} number={true} onChange={maxRange}/>
+                    <InputElement label={"Lower Range"} default ={50 } value ={strikeParameter.Lower} number={true} onChange={minRange}/>
+                    <InputElement label={"Upper Range"} default ={200} value ={strikeParameter.Upper} number={true} onChange={maxRange}/>
                 </>:""
 
             }
                         {
                 criteria === "Closest Premium"?<>
-                    <InputElement label={"Premium"} default ={50} number={true} onChange={closest}/>
+                    <InputElement label={"Premium"} default ={50} value ={strikeParameter["Closest Premium"]} number={true} onChange={closest}/>
                 </>:""
 
             }
             {
                 criteria === "Straddle Width"?<>
                     <Label label={"[ATM Strike"}/>
-                    <DropDown options={["+", "-"]} onChange={opp}/>
+                    <DropDown options={["+", "-"]} value={strikeParameter.Adjustment} onChange={opp}/>
                     <Label label={"("}/>
-                    <NumberInput default={1.5} min = {1.5} onChange={width}/>
+                    <NumberInput default={1.5} min = {1.5} value={strikeParameter.Width} onChange={width}/>
                     <Label label={"xATM Straddle Price)]"}/>
                 </>:""
 

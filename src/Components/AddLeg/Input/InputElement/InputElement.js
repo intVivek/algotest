@@ -14,10 +14,16 @@ const InputElement = (props) => {
                     <NumberInput 
                         min= {props.min || 0}
                         max= {props.max || 10000000}
+                        value={props.value}
                         default={props.default}
                         onChange={props.onChange}
                     />:
-                    <DropDown options={props.options} onChange={props.onChange} />
+                    <DropDown 
+                        options={props.options}
+                        value={props.value}
+                        default={props.default}
+                        onChange={props.onChange}
+                    />
             }
         </div>
     );

@@ -34,6 +34,7 @@ const defaultLeg = {
         Type: "ASRP",
         Value: 0
     },
+    OptionType: "Call",
     ExpiryKind: "Weekly",
     EntryType: "Strike Type",
     StrikeParameter: "ATM",
