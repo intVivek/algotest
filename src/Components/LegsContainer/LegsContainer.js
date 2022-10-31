@@ -25,7 +25,7 @@ const LegsContainer = () => {
 
   return (
     <div className="legsContainer">
-      {!loading?
+      {loading?
       <Loading />
       :legs && legs.map((leg, index) => {
         return <LegDetails key={index} leg={leg} index ={index}/>
