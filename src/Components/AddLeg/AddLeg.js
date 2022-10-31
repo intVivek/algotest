@@ -16,7 +16,7 @@ const AddLeg = () => {
     const addLog = ()=>{
         console.log(defaultLeg, leg);
         setLegs((prev)=>{
-            return [...prev, {...leg}];
+            return [...prev, cloneDeep(leg)];
         });
     }
 

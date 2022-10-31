@@ -46,7 +46,7 @@ const TopLayer = ({index, leg}) => {
         <DropDown 
             color={"blue"}
             options={expiries}
-            value={leg.Expiry}
+            value={leg.ExpiryKind}
             onChange={(value)=>{
                 setLegs((legs) => {
                     legs[index].ExpiryKind = value;

@@ -4,7 +4,7 @@ import Button from '../Button';
 import {db} from '../../firebase';
 import { toast } from 'react-toastify';
 import { useLeg } from '../../Context/LegProvider';
-import {collection, addDoc} from 'firebase/firestore';
+import {doc, updateDoc} from 'firebase/firestore';
 
 const SubmitLegs = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ const SubmitLegs = () => {
         setLoading(true);
         console.log(legs);
         try {
-          await addDoc(collection(db, 'legs'), {legs});
+          await updateDoc(doc(db, 'legs', 'Legs'), {legs});
           setLoading(false);
           console.log(legs);
           toast.success("Legs Submitted Successfully");

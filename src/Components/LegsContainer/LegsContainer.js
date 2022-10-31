@@ -18,7 +18,7 @@ const LegsContainer = () => {
         return doc.data();
       })
       setLoading(false);
-      setLegs(data[0].legs);
+      setLegs(data[0].legs || []);
     })
   },[])
 
