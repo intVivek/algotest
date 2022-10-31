@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {strikeTypes} from "../../../Utils/Data";
 import DropDown from '../../DropDown';
 import Label from '../../Label';

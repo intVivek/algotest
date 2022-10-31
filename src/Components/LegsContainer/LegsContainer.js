@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./LegsContainer.scss";
 import React, {useState, useEffect} from "react";
 import {useLeg} from "../../Context/LegProvider";
