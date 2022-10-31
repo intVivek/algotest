@@ -1,13 +1,13 @@
 import "./Button.scss";
 import React from "react";
 
-const Button = (props) => {
+const Button = ({color, loading, label, onClick}) => {
     return (
         <div 
-            className={props.color==='blue'?"blueButton":"whiteButton"}
-            onClick={props.onClick}
+            className={color==='blue'?"blueButton":"whiteButton"}
+            onClick={onClick}
         >
-            {props.label}
+            {loading?"Loading...":label}
         </div>
     );
 };
