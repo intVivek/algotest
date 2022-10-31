@@ -13,11 +13,9 @@ const SubmitLegs = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true);
-        console.log(legs);
         try {
           await updateDoc(doc(db, 'legs', 'Legs'), {legs});
           setLoading(false);
-          console.log(legs);
           toast.success("Legs Submitted Successfully");
           
         } catch (err) {

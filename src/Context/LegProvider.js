@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 const LegContext = React.createContext()
 
 export function useLeg() {
@@ -8,9 +8,6 @@ export function useLeg() {
 export function LegProvider({children }) {
 
   const [legs, setLegs] = useState([]);
-  useEffect(()=>{
-    console.log(legs);
-  },[legs])
 
   return (
     <LegContext.Provider value={{legs, setLegs}}>
