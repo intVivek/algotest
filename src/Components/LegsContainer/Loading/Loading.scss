@@ -1,0 +1,25 @@
+.loadingContainer{
+    width: 100%;
+    height: 220px;
+    display: flex;
+    gap: 50px;
+    padding-top: 50px;
+    flex-direction: column;
+    background-color: var(--background-color2);
+
+    >.top{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+    >.middle{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+    >.bottom{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}

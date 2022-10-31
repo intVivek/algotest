@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react";
 import {useLeg} from "../../Context/LegProvider";
 import LegDetails from "./LegDetails";
 import {db} from '../../firebase';
-import Loading from './LegDetails/Loading';
+import Loading from './Loading';
 import {collection, query, onSnapshot} from "firebase/firestore";
 
 const LegsContainer = () => {
@@ -25,7 +25,7 @@ const LegsContainer = () => {
 
   return (
     <div className="legsContainer">
-      {loading?
+      {!loading?
       <Loading />
       :legs && legs.map((leg, index) => {
         return <LegDetails key={index} leg={leg} index ={index}/>
